@@ -19,9 +19,10 @@
 class KCAPTCHA{
 
 	// generates keystring and image
-	function KCAPTCHA(){
+	function KCAPTCHA($path_to_config = ''){
 
-		require(dirname(__FILE__).'/kcaptcha_config.php');
+        $path_to_config = empty($path_to_config) ? dirname(__FILE__).'/kcaptcha_config.php' : $path_to_config;
+		require($path_to_config);
 		$fonts=array();
 		$fontsdir_absolute=dirname(__FILE__).'/'.$fontsdir;
 		if ($handle = opendir($fontsdir_absolute)) {
